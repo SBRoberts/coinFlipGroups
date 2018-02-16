@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <script>
+
+        // Write a flip() function that flips a coin and returns heads or tails based on a random number.
+
+        //COIN FLIP ~~~~~~~
+        const flip = () => {
+            // use an array to store heads or tails
+            const coin = ['heads', 'tails'];
+            // return an index randomly
+            const flipResult = coin[Math.floor(Math.random()* coin.length)];
+            return flipResult;
+        };
+
+        // Write a function flipMany() that calls flip() 100 times. Recording the results of heads and tails.
+
+        // FLIP MANY ~~~~~~~
+        const flipMany = () => {
+            //how many times do we want to flip the coin?
+            const count = 100;
+            // create an object to hold the results
+            const group = {
+                heads: 0,
+                tails: 0
+            }
+            // flip() count times and store in variable
+            for (let i = 0; i < count; i++) {
+                let side = flip();
+                // if group.heads + group.tails < count, flip the coin and add it to the group object
+                if (side === 'heads') {
+                    group.heads = group.heads + 1;
+                } else {
+                    group.tails = group.tails + 1;
+                }
+            }
+            return group;
+        };
+
+        // Write a function flipManyGroups() that calls flipMany() 100,000. Each time the flipMany() is run, it might find a new high/low.
+
+        // FLIP MANY GROUPS ~~~~~~~
+        const flipManyGroups = () => {
+            // how many times to run flipMany()
+            const count = 100000;
+            //store all the heads in an array
+            const heads = [];
+            //store all the tails in an array
+            const tails = [];
+            // loop function count times
+            for (let i = 0; i < count; i++) {
+                // store the result of each flip
+               const group = flipMany();
+                // pass the result heads and tails array accordingly.
+                heads.push(group.heads);
+                tails.push(group.tails);
+            }
+
+            //Look for the max and min values in each array and store it in variable
+            //This is how we find the record highs and lows
+            const headsHigh = Math.max(...heads);
+            const headsLow = Math.min(...heads);
+            const tailsHigh = Math.max(...tails);
+            const tailsLow = Math.min(...tails);
+            return (`Highest Heads: ${headsHigh} | Lowest Heads: ${headsLow} | Highest Tails: ${tailsHigh} | Lowest Tails: ${tailsLow}`)
+        };
+
+        // create an object to hold data
+        const multiFlip = flipManyGroups();
+        console.log(multiFlip);
+
+    </script>
+</body>
+</html>
