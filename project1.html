@@ -5,77 +5,43 @@
     <title>Document</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-    <script>
-
-        // Write a flip() function that flips a coin and returns heads or tails based on a random number.
-
-        //COIN FLIP ~~~~~~~
-        const flip = () => {
-            // use an array to store heads or tails
-            const coin = ['heads', 'tails'];
-            // return an index randomly
-            const flipResult = coin[Math.floor(Math.random()* coin.length)];
-            return flipResult;
-        };
-
-        // Write a function flipMany() that calls flip() 100 times. Recording the results of heads and tails.
-
-        // FLIP MANY ~~~~~~~
-        const flipMany = () => {
-            //how many times do we want to flip the coin?
-            const count = 100;
-            // create an object to hold the results
-            const group = {
-                heads: 0,
-                tails: 0
-            }
-            // flip() count times and store in variable
-            for (let i = 0; i < count; i++) {
-                let side = flip();
-                // if group.heads + group.tails < count, flip the coin and add it to the group object
-                if (side === 'heads') {
-                    group.heads = group.heads + 1;
-                } else {
-                    group.tails = group.tails + 1;
-                }
-            }
-            return group;
-        };
-
-        // Write a function flipManyGroups() that calls flipMany() 100,000. Each time the flipMany() is run, it might find a new high/low.
-
-        // FLIP MANY GROUPS ~~~~~~~
-        const flipManyGroups = () => {
-            // how many times to run flipMany()
-            const count = 100000;
-            //store all the heads in an array
-            const heads = [];
-            //store all the tails in an array
-            const tails = [];
-            // loop function count times
-            for (let i = 0; i < count; i++) {
-                // store the result of each flip
-               const group = flipMany();
-                // pass the result heads and tails array accordingly.
-                heads.push(group.heads);
-                tails.push(group.tails);
-            }
-
-            //Look for the max and min values in each array and store it in variable
-            //This is how we find the record highs and lows
-            const headsHigh = Math.max(...heads);
-            const headsLow = Math.min(...heads);
-            const tailsHigh = Math.max(...tails);
-            const tailsLow = Math.min(...tails);
-            return (`Highest Heads: ${headsHigh} | Lowest Heads: ${headsLow} | Highest Tails: ${tailsHigh} | Lowest Tails: ${tailsLow}`)
-        };
-
-        // create an object to hold data
-        const multiFlip = flipManyGroups();
-        console.log(multiFlip);
-
-    </script>
+    <main>
+        <section>
+            <div class="wrapper">
+                <h1>Coin Flipping</h1>
+                <h2>If you flip a coin theres a 50% chance it will be either heads or tails</h2>
+                <h2>If you flip a coin 100 times and call it a group, how many heads and how many tails would you actually get?</h2>
+                <h3>I'm interested in seeing how far the the number of heads and the number of tails deviate over a large number of groups</h3>
+                <form>
+                  <label for="groups">
+                      <h3>How many groups should we test?</h3>
+                  </label>
+                  <input class="" type="text" id="groups" placeholder="100000" value="100000">
+                  <input type="submit" value="Get Flipping">
+                  <div><a href="#results">View Results</a></div>
+                </form>
+                <div id="results" class="clearfix">
+                    <div class="highs">
+                        <div class="heads clearfix">
+                        </div>
+                        <div class="tails clearfix">
+                        </div>
+                    </div>
+                    <div class="lows">
+                        <div class="heads clearfix">
+                        </div>
+                        <div class="tails clearfix">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="scripts/script.js"></script>
 </body>
 </html>

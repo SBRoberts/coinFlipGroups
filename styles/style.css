@@ -1,0 +1,97 @@
+/*SETUP*/
+html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,footer,header,nav,section{display:block}h1{font-size:2em;margin:.67em 0}figcaption,figure,main{display:block}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}audio,video{display:inline-block}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}button,html [type=button],[type=reset],[type=submit]{-webkit-appearance:button}button::-moz-focus-inner,[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner{border-style:none;padding:0}button:-moz-focusring,[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{display:inline-block;vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details,menu{display:block}summary{display:list-item}canvas{display:inline-block}template{display:none}[hidden]{display:none}
+
+.clearfix:after {visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; font-family:'Open Sans', sans-serif;}
+
+/*FONTS AND FORMATTING*/
+.wrapper{
+    margin: 0 auto;
+    width: 90vmin;
+    transition: width .5s;
+}
+
+html{
+    font-size: calc(16px + (20 - 16) * ((100vw - 500px) / (1600 - 500)));
+}
+
+body{
+    margin: 0;
+    padding: 5% 0;
+}
+
+h2, h3{
+    font-weight: 600;
+    line-height: 1.3em;
+    margin-bottom: 1.3em;
+}
+
+h1{
+    margin-top: 0;
+}
+
+h2{
+    font-size: 1.5em;
+}
+
+h3, input{
+    font-size: 1.1em;
+}
+
+input{
+    padding: 2% 3%;
+    transition: box-shadow .3s;
+    border: 2px solid #ffd800;
+}
+input:focus{
+    outline: none;
+}
+
+a, a:visited, a:active{
+    text-decoration: none;
+    color: inherit;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: white
+}
+form div{
+    background-color: #ffd800;
+    margin-top: 0em;
+    padding: 1em;
+    margin: 2em 5em 0;
+    display: none;
+}
+.confirm{
+    opacity: 100;
+}
+
+/*LAYOUT*/
+
+.highs h3, .lows h3{
+    float: left;
+}
+.highs h3:nth-child(1), .lows h3:nth-child(1){
+    margin: 0 1em 1em 0;
+    text-align: center;
+    width: 100%;
+}
+.highs h3:nth-child(2), .lows h3:nth-child(2){
+    margin: 0 1em 2em 0;
+    text-align: center;
+    width: 100%;
+}
+
+.highs, .lows {
+    width: 50%;
+    float: left;
+}
+
+form{
+    width: 100%;
+    margin-bottom: 2em;
+    border: 3px solid #ffd800;
+    text-align: center;
+    padding: 10% 0;
+}
+
